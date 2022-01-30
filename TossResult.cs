@@ -13,20 +13,22 @@ namespace PracticeProb2
         public void Toss()
         {
             Random rand = new Random();
-            for (int i = 0; i < 100; i++)
+            Console.WriteLine("Enter number of times coin flipped:");
+            int number = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < number; i++)
             {
-                int random_number = rand.Next(2);
-                if (random_number == 0)
-                {
-                    head_count++;
-                }
-                else
+                double random_number = rand.NextDouble();
+                if (random_number < 0.5)
                 {
                     tail_count++;
                 }
+                else
+                {
+                    head_count++;
+                }
 
             }
-            Console.WriteLine("Percentage of Heads is {0}\nPercentage of Tails is {1}",head_count,tail_count);
+            Console.WriteLine("Percentage of Head: {0}\nPercentage of Tail: {1}",((double)head_count/(double)number)*100 , ((double)tail_count / (double)number) * 100);
 
         }
         
